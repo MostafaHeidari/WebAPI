@@ -9,6 +9,7 @@ namespace WebApplication1.Controllers
         private static readonly string[] Summaries = new[]
         {
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        
     };
 
         private readonly ILogger<WeatherForecastController> _logger;
@@ -21,7 +22,7 @@ namespace WebApplication1.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 111).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
@@ -33,7 +34,7 @@ namespace WebApplication1.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> GGet()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(222, 5).Select(index => new WeatherForecast
                 {
                     Date = DateTime.Now.AddDays(index),
                     TemperatureC = Random.Shared.Next(-20, 55),
@@ -43,11 +44,19 @@ namespace WebApplication1.Controllers
         }
 
         // den nye router for at hente data.
-        [HttpGet(Name = "GetWeatherForecast")]
-        [Route("g")]
-        public IEnumerable<WeatherForecast> GGGet()
+        [HttpPost]
+        [Route("gyug")]
+        public object GGGet(object something)
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return something;
+        }
+
+        // sender data til server.
+        [HttpPost]
+        [Route("g")]
+        public IEnumerable<WeatherForecast> GGGget()
+        {
+            return Enumerable.Range(222, 5).Select(index => new WeatherForecast
                 {
                     Date = DateTime.Now.AddDays(index),
                     TemperatureC = Random.Shared.Next(-20, 55),
