@@ -55,5 +55,15 @@ namespace WebApplication1.Controllers
                 })
                 .ToArray();
         }
+
+
+        //Mathias post
+        [HttpPost]
+        [Route("m")]
+        public object PPPost(object input)
+        {
+            return input;
+        }
+
     }
 }
